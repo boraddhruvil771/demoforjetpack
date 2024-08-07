@@ -1,7 +1,8 @@
-package com.example.demoforjetpack
+package com.example.demoforjetpack.bottomnavigation
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import com.example.demoforjetpack.R
 
 sealed class BottomNavItem(
     @StringRes val title: Int,

@@ -67,11 +67,10 @@ private fun popUpToLogin(navController: NavHostController) {
 private fun addProfileScreen(
     navController: NavHostController, navGraphBuilder: NavGraphBuilder
 ) {
-    navGraphBuilder.composable(
-        route = NavRoute.Profile.withArgsFormat(
-            NavRoute.Profile.id,
-            NavRoute.Profile.showDetails
-        ),
+    navGraphBuilder.composable(route = NavRoute.Profile.withArgsFormat(
+        NavRoute.Profile.id,
+        NavRoute.Profile.showDetails
+    ),
         arguments = listOf(navArgument(NavRoute.Profile.id) {
             type = NavType.IntType
         }, navArgument(NavRoute.Profile.showDetails) {
@@ -91,8 +90,7 @@ private fun addProfileScreen(
 private fun addSearchScreen(
     navController: NavHostController, navGraphBuilder: NavGraphBuilder
 ) {
-    navGraphBuilder.composable(
-        route = NavRoute.Search.withArgsFormat(NavRoute.Search.query),
+    navGraphBuilder.composable(route = NavRoute.Search.withArgsFormat(NavRoute.Search.query),
         arguments = listOf(navArgument(NavRoute.Search.query) {
             type = NavType.StringType
             nullable = true

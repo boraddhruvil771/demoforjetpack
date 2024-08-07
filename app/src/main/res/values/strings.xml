@@ -3,5 +3,5 @@
     <string name="app_home">Home</string>
     <string name="app_profile">Profile</string>
     <string name="app_search">Search</string>
-    <string name="app_map">Map</string>
+    <string name="app_map">Deep Linking</string>
 </resources>

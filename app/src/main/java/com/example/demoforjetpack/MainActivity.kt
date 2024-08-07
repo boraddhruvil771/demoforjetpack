@@ -31,6 +31,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import coil.compose.rememberAsyncImagePainter
+import com.example.demoforjetpack.bottomnavigation.BottomNavItem
+import com.example.demoforjetpack.bottomnavigation.BottomNavigationBar
 import com.example.demoforjetpack.navigation.NavGraph
 import com.example.demoforjetpack.ui.theme.DemoForJetpackTheme
 import com.example.demoforjetpack.ui.theme.SimpleNavComposeAppTheme
@@ -95,7 +97,7 @@ fun ProfileScreen() {
 @Composable
 fun MapScreen() {
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        Text(text = "Map Screen")
+
     }
 }
 
