@@ -24,12 +24,16 @@ import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import coil.compose.rememberAsyncImagePainter
+import com.example.demoforjetpack.navigation.NavGraph
 import com.example.demoforjetpack.ui.theme.DemoForJetpackTheme
+import com.example.demoforjetpack.ui.theme.SimpleNavComposeAppTheme
 import com.example.demoforjetpack.viewmodel.MainViewModel
 
 class MainActivity : ComponentActivity() {
@@ -55,18 +59,8 @@ fun MainScreen() {
             startDestination = BottomNavItem.Home.route,
             Modifier.padding(innerPadding)
         ) {
-            composable(BottomNavItem.Home.route) {
-                HomeScreen(
-                    viewModel = MainViewModel(
-                    )
-                )
-            }
-            composable(BottomNavItem.Search.route) {
-                SearchScreen(
-                    viewModel = MainViewModel(
-                    )
-                )
-            }
+            composable(BottomNavItem.Home.route) { HomeScreen(viewModel()) }
+            composable(BottomNavItem.Search.route) { SearchScreen(viewModel()) }
             composable(BottomNavItem.Profile.route) { ProfileScreen() }
             composable("map") { MapScreen() }
 
@@ -92,8 +86,9 @@ fun SearchScreen(viewModel: MainViewModel) {
 
 @Composable
 fun ProfileScreen() {
-    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        Text(text = "Profile Screen")
+    SimpleNavComposeAppTheme {
+        val navController = rememberNavController()
+        NavGraph(navController)
     }
 }
 
@@ -104,6 +99,14 @@ fun MapScreen() {
     }
 }
 
+
+@Preview(showBackground = true)
+@Composable
+fun DefaultPreview() {
+    DemoForJetpackTheme {
+        MainScreen()
+    }
+}
 
 @Composable
 fun PhotosList(viewModel: MainViewModel) {
